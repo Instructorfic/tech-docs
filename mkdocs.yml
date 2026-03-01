@@ -1,0 +1,55 @@
+site_name: Recursos Académicos
+site_url: https://docs.softwarelab.com.mx
+site_description: Materiales y recursos de apoyo
+site_author: Tu Nombre
+
+theme:
+  name: material
+  language: es
+
+  icon:
+    logo: material/code-braces
+
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+  extra_css:
+  - css/overrides.css  
+
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: cyan
+    - scheme: slate
+      primary: blue grey
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Modo oscuro
+
+  features:
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+    - navigation.sections
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - footnotes
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra:
+  social: []

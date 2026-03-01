@@ -1,0 +1,38 @@
+name: Academy Deployment Workflow
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: Publicar Portal Académico
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: pip install mkdocs-material
+      - run: mkdocs gh-deploy --force
+
+  sync:
+    name: Sincronizar Espejo Azure DevOps
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: always()  
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Push to Azure DevOps
+        env:
+          AZURE_DEVOPS_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
+        run: |
+          git config --global user.email "instructorfic@gmail.com"
+          git config --global user.name "Instructor Fic"
+          git remote add azure https://pac:$AZURE_DEVOPS_TOKEN@dev.azure.com/ficuas/Recursos%20de%20apoyo/_git/tech-docs
+          git push azure main --force

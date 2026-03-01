@@ -1,0 +1,34 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - group: RuntimeSettings 
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+  displayName: 'Configurar Python'
+
+- script: |
+    pip install mkdocs-material
+    mkdocs build
+  displayName: '1. Instalar y Compilar MkDocs'
+
+- script: |
+    git config --global user.email "$(GH_USER_EMAIL)"
+    git config --global user.name "$(GH_USER_NAME)"
+    # Sincronización con GitHub
+    git remote add backup https://$(GH_TOKEN)@github.com/$(GH_PROJECT)
+    git push backup main --force
+  displayName: '2. Sincronizar Espejo en GitHub'
+
+- task: AzureStaticWebApp@0
+  displayName: '3. Publicar en Azure Static Web Apps'
+  inputs:
+    app_location: '/'       
+    output_location: 'site'
+    azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_API_TOKEN)

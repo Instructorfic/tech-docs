@@ -1,0 +1,14 @@
+.md-content {
+    max-width: 1200px; 
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.md-sidebar {
+    max-width: 280px;
+}
+
+.md-main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
