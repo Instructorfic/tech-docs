@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://docs.softwarelab.com.mx/</loc>
+         <lastmod>2026-03-04</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.softwarelab.com.mx/computo-movil/</loc>
+         <lastmod>2026-03-04</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.softwarelab.com.mx/devsecops/</loc>
+         <lastmod>2026-03-04</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.softwarelab.com.mx/guias/</loc>
+         <lastmod>2026-03-04</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.softwarelab.com.mx/logica-programacion/</loc>
+         <lastmod>2026-03-04</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.softwarelab.com.mx/recursos-transversales/</loc>
+         <lastmod>2026-03-04</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.softwarelab.com.mx/recursos-transversales/buenas-practicas-commits/</loc>
+         <lastmod>2026-03-04</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.softwarelab.com.mx/recursos-transversales/versionamiento-semantico/</loc>
+         <lastmod>2026-03-04</lastmod>
+    </url>
+</urlset>

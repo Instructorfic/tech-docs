@@ -1,0 +1,1503 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Materiales y recursos de apoyo">
+      
+      
+        <meta name="author" content="Tu Nombre">
+      
+      
+        <link rel="canonical" href="https://docs.softwarelab.com.mx/recursos-transversales/buenas-practicas-commits/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../versionamiento-semantico/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Buenas prácticas de confirmaciones y versionamiento semántico - Recursos Académicos</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#buenas-practicas-de-confirmaciones-y-versionamiento-semantico" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Recursos Académicos" class="md-header__button md-logo" aria-label="Recursos Académicos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2H3v2h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2v-2H8v-5a2 2 0 0 0-2-2 2 2 0 0 0 2-2V5h2V3m6 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Recursos Académicos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Buenas prácticas de confirmaciones y versionamiento semántico
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="cyan"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Recursos Académicos" class="md-nav__button md-logo" aria-label="Recursos Académicos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2H3v2h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2v-2H8v-5a2 2 0 0 0-2-2 2 2 0 0 0 2-2V5h2V3m6 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3z"/></svg>
+
+    </a>
+    Recursos Académicos
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Informática UAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computo movil
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computo movil
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computo-movil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cómputo Móvil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devsecops
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Devsecops
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Desarrollo, seguridad y operaciones de sistemas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guias
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guias
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guías
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logica programacion
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Logica programacion
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logica-programacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lógica de Programación y Pensamiento Computacional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos transversales
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Recursos transversales
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recursos Transversales
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buenas prácticas de confirmaciones y versionamiento semántico
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buenas prácticas de confirmaciones y versionamiento semántico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definicion-de-conventional-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definición de conventional commits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicion-de-confirmaciones-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definición de confirmaciones (commits)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-formal-de-una-confirmacioncommit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura formal de una confirmación(commit)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estructura formal de una confirmación(commit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-confirmacionescommits-permitidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de confirmaciones(commits) permitidas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cambios-incompatibles-breaking-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambios incompatibles (Breaking Changes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alcance-scope-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alcance (Scope) recomendado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pies-de-pagina-y-metadatos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pies de página y metadatos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas-profesionales-de-confirmaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buenas prácticas profesionales de confirmaciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-que-siguen-buenas-practicas-de-confirmaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos que siguen buenas prácticas de confirmaciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-que-no-siguen-buenas-practicas-de-confirmaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos que no siguen buenas prácticas de confirmaciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-recomendado-de-trabajo-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo recomendado de trabajo (ejemplo)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versionamiento-semantico-semver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versionamiento semántico (SemVer)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Versionamiento semántico (SemVer)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relacion-con-los-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relación con los Commits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas-profesionales-de-versionado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buenas prácticas profesionales de versionado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-de-flujo-integrado-de-commits-y-versionado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo de flujo integrado de commits y versionado
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versionamiento-semantico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buenas Prácticas de Versionamiento Semántico – SemVer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definicion-de-conventional-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definición de conventional commits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definicion-de-confirmaciones-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definición de confirmaciones (commits)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-formal-de-una-confirmacioncommit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura formal de una confirmación(commit)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estructura formal de una confirmación(commit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Componentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-confirmacionescommits-permitidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de confirmaciones(commits) permitidas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cambios-incompatibles-breaking-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambios incompatibles (Breaking Changes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alcance-scope-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alcance (Scope) recomendado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pies-de-pagina-y-metadatos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pies de página y metadatos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas-profesionales-de-confirmaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buenas prácticas profesionales de confirmaciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-que-siguen-buenas-practicas-de-confirmaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos que siguen buenas prácticas de confirmaciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-que-no-siguen-buenas-practicas-de-confirmaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplos que no siguen buenas prácticas de confirmaciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flujo-recomendado-de-trabajo-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo recomendado de trabajo (ejemplo)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versionamiento-semantico-semver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versionamiento semántico (SemVer)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Versionamiento semántico (SemVer)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relacion-con-los-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relación con los Commits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas-profesionales-de-versionado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buenas prácticas profesionales de versionado
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-de-flujo-integrado-de-commits-y-versionado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejemplo de flujo integrado de commits y versionado
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="buenas-practicas-de-confirmaciones-y-versionamiento-semantico">Buenas prácticas de confirmaciones y versionamiento semántico<a class="headerlink" href="#buenas-practicas-de-confirmaciones-y-versionamiento-semantico" title="Permanent link">&para;</a></h1>
+<p>Este documento describe las <strong>buenas prácticas de confirmaciones (commits)</strong> y <strong>versionamiento semántico (SemVer)</strong> para todos los repositorios de proyectos de desarrollo de software.</p>
+<p>Su objetivo es establecer un estándar profesional que permita mantener <strong>historial de cambios claro, versionado coherente y releases predecibles</strong>, facilitando colaboración, integración continua y preparación para entornos empresariales. </p>
+<p>Se basa en la especificación de <strong>Conventional Commits 1.0.0</strong> y en los principios de <strong>Semantic Versioning (SemVer)</strong>.</p>
+<h2 id="definicion-de-conventional-commits">Definición de conventional commits<a class="headerlink" href="#definicion-de-conventional-commits" title="Permanent link">&para;</a></h2>
+<p><strong>Conventional Commits</strong> es un estándar para estructurar mensajes de confirmación de forma <strong>humana y legible por máquina</strong>, que facilita:</p>
+<ul>
+<li>Generación automática de <strong>CHANGELOG</strong>  </li>
+<li>Determinación de <strong>versiones SemVer</strong> según tipo de commit  </li>
+<li>Comunicación clara de la naturaleza de los cambios  </li>
+<li>Mejora de colaboración en proyectos con múltiples desarrolladores  </li>
+</ul>
+<h2 id="definicion-de-confirmaciones-commits">Definición de confirmaciones (commits)<a class="headerlink" href="#definicion-de-confirmaciones-commits" title="Permanent link">&para;</a></h2>
+<p>Una confirmación(commit) es una <strong>unidad de cambio lógico en el código</strong>, que debe describir de forma clara y concisa <strong>qué se cambió y por qué</strong>.  </p>
+<p>Cada commit debe ser pequeño, enfocado y descriptivo, evitando mensajes genéricos como "update" o "arreglos varios".</p>
+<h2 id="estructura-formal-de-una-confirmacioncommit">Estructura formal de una confirmación(commit)<a class="headerlink" href="#estructura-formal-de-una-confirmacioncommit" title="Permanent link">&para;</a></h2>
+<p><tipo>[alcance opcional][!]: <descripción breve></p>
+<p>[cuerpo opcional]</p>
+<p>[pies de página opcionales]</p>
+<h3 id="componentes">Componentes<a class="headerlink" href="#componentes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>tipo</strong>: tipo de commit (<code>feat</code>, <code>fix</code>, <code>docs</code>, etc.)</li>
+<li><strong>alcance</strong> <em>(opcional)</em>: módulo o área afectada entre paréntesis, ej.: <code>feat(ui): ...</code></li>
+<li><strong>!</strong> <em>(opcional)</em>: indica <strong>cambio incompatible (breaking change)</strong></li>
+<li><strong>descripción breve</strong>: resumen del cambio en presente, sin punto final</li>
+<li><strong>cuerpo</strong> <em>(opcional)</em>: explicación detallada, puede ocupar varias líneas</li>
+<li><strong>pies de página</strong> <em>(opcional)</em>: referencias, metadatos o BREAKING CHANGE</li>
+</ul>
+<hr />
+<h2 id="tipos-de-confirmacionescommits-permitidas">Tipos de confirmaciones(commits) permitidas<a class="headerlink" href="#tipos-de-confirmacionescommits-permitidas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Impacto SemVer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>feat</td>
+<td>Nueva funcionalidad</td>
+<td>MINOR</td>
+</tr>
+<tr>
+<td>fix</td>
+<td>Corrección de errores</td>
+<td>PATCH</td>
+</tr>
+<tr>
+<td>docs</td>
+<td>Cambios en documentación</td>
+<td>Ninguno</td>
+</tr>
+<tr>
+<td>style</td>
+<td>Cambios de formato o estilo que no afectan la lógica</td>
+<td>Ninguno</td>
+</tr>
+<tr>
+<td>refactor</td>
+<td>Cambios internos que no modifican el comportamiento</td>
+<td>Ninguno</td>
+</tr>
+<tr>
+<td>perf</td>
+<td>Optimización de rendimiento</td>
+<td>Ninguno</td>
+</tr>
+<tr>
+<td>test</td>
+<td>Agrega o modifica pruebas</td>
+<td>Ninguno</td>
+</tr>
+<tr>
+<td>build</td>
+<td>Cambios en sistema de compilación o dependencias</td>
+<td>Ninguno</td>
+</tr>
+<tr>
+<td>ci</td>
+<td>Cambios en integración continua / pipelines</td>
+<td>Ninguno</td>
+</tr>
+<tr>
+<td>chore</td>
+<td>Tareas de mantenimiento o administrativas</td>
+<td>Ninguno</td>
+</tr>
+<tr>
+<td>revert</td>
+<td>Reversión de commits anteriores</td>
+<td>Ninguno</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cambios-incompatibles-breaking-changes">Cambios incompatibles (Breaking Changes)<a class="headerlink" href="#cambios-incompatibles-breaking-changes" title="Permanent link">&para;</a></h2>
+<p>Se indican de <strong>dos formas</strong>:</p>
+<ol>
+<li>Con <code>!</code> antes de <code>:</code> en el encabezado:</li>
+</ol>
+<p>feat(api)!: cambia estructura de respuesta del servicio</p>
+<ol>
+<li>En pie de página con <code>BREAKING CHANGE:</code>:</li>
+</ol>
+<p>BREAKING CHANGE: la API ahora devuelve objetos completos en lugar de IDs</p>
+<blockquote>
+<p>Los cambios incompatibles corresponden a un incremento <strong>MAJOR</strong> en SemVer.</p>
+</blockquote>
+<hr />
+<h2 id="alcance-scope-recomendado">Alcance (Scope) recomendado<a class="headerlink" href="#alcance-scope-recomendado" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Indicar el módulo o paquete afectado.</li>
+<li>Ejemplos:</li>
+</ul>
+<p>feat(login): agrega validación de campos<br />
+fix(navigation): corrige crash al regresar pantalla<br />
+refactor(viewmodel): optimiza manejo de estado</p>
+<hr />
+<h2 id="pies-de-pagina-y-metadatos">Pies de página y metadatos<a class="headerlink" href="#pies-de-pagina-y-metadatos" title="Permanent link">&para;</a></h2>
+<p>Permite incluir referencias y anotaciones importantes:</p>
+<p>Refs: #123, #456<br />
+Revisado-por: Profesor<br />
+BREAKING CHANGE: ...</p>
+<blockquote>
+<p>Todos los pies de página deben ir <strong>después de una línea en blanco</strong> tras el cuerpo del commit.</p>
+</blockquote>
+<hr />
+<h2 id="buenas-practicas-profesionales-de-confirmaciones">Buenas prácticas profesionales de confirmaciones<a class="headerlink" href="#buenas-practicas-profesionales-de-confirmaciones" title="Permanent link">&para;</a></h2>
+<p>✔ Commits pequeños y frecuentes<br />
+✔ Mensajes claros, consistentes y en presente<br />
+✔ Un solo propósito por commit<br />
+✔ Revisar que compile antes de commitear<br />
+✔ Mínimo 4 commits por práctica<br />
+✔ Cada commit debe ser <strong>una unidad lógica de cambio</strong></p>
+<hr />
+<h2 id="ejemplos-que-siguen-buenas-practicas-de-confirmaciones">Ejemplos que siguen buenas prácticas de confirmaciones<a class="headerlink" href="#ejemplos-que-siguen-buenas-practicas-de-confirmaciones" title="Permanent link">&para;</a></h2>
+<p>feat(ui): agrega pantalla de login con Jetpack Compose<br />
+fix(counter): corrige reinicio de estado al rotar pantalla<br />
+docs: agrega guía de buenas prácticas de commits<br />
+refactor(viewmodel): separa lógica de validación<br />
+perf(images): optimiza carga de recursos<br />
+build(gradle): actualiza versión Compose a 1.5<br />
+feat(api)!: cambia estructura de respuesta JSON<br />
+BREAKING CHANGE: la API ya no devuelve IDs sueltos, sino objetos completos</p>
+<hr />
+<h2 id="ejemplos-que-no-siguen-buenas-practicas-de-confirmaciones">Ejemplos que no siguen buenas prácticas de confirmaciones<a class="headerlink" href="#ejemplos-que-no-siguen-buenas-practicas-de-confirmaciones" title="Permanent link">&para;</a></h2>
+<p>update proyecto<br />
+arreglos varios<br />
+version final<br />
+subiendo tarea</p>
+<ul>
+<li>Mensajes genéricos  </li>
+<li>Sin tipo válido  </li>
+<li>Sin alcance ni descripción clara  </li>
+</ul>
+<hr />
+<h2 id="flujo-recomendado-de-trabajo-ejemplo">Flujo recomendado de trabajo (ejemplo)<a class="headerlink" href="#flujo-recomendado-de-trabajo-ejemplo" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Crear rama desde <code>main</code>:</li>
+</ol>
+<p>git checkout -b practica-3-navegacion</p>
+<ol>
+<li>Realizar commits siguiendo estas buenas prácticas  </li>
+<li>Sincronizar con el repositorio remoto (push)  </li>
+<li>Integrar cambios con la rama objetivo (pull / merge request) </li>
+<li>Revisar con checklist  </li>
+<li>Merge → <code>CHANGELOG</code> y versión SemVer actualizados automáticamente</li>
+</ol>
+<hr />
+<h2 id="versionamiento-semantico-semver">Versionamiento semántico (SemVer)<a class="headerlink" href="#versionamiento-semantico-semver" title="Permanent link">&para;</a></h2>
+<p>SemVer sigue el formato <strong>MAJOR.MINOR.PATCH</strong>, donde:</p>
+<ul>
+<li><strong>MAJOR</strong> → Cambios incompatibles con versiones anteriores (breaking changes)  </li>
+<li><strong>MINOR</strong> → Nuevas funcionalidades compatibles con versiones anteriores  </li>
+<li><strong>PATCH</strong> → Correcciones de errores y mejoras menores sin romper compatibilidad</li>
+</ul>
+<h3 id="relacion-con-los-commits">Relación con los Commits<a class="headerlink" href="#relacion-con-los-commits" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tipo de commit</th>
+<th>Impacto en versión</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>feat</td>
+<td>MINOR</td>
+</tr>
+<tr>
+<td>fix</td>
+<td>PATCH</td>
+</tr>
+<tr>
+<td>BREAKING CHANGE</td>
+<td>MAJOR</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>El uso correcto de Conventional Commits permite <strong>generar CHANGELOG y determinar la versión automáticamente</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="buenas-practicas-profesionales-de-versionado">Buenas prácticas profesionales de versionado<a class="headerlink" href="#buenas-practicas-profesionales-de-versionado" title="Permanent link">&para;</a></h2>
+<p>✔ Definir claramente la política de commits antes de empezar un proyecto<br />
+✔ Evitar commits que rompan compatibilidad sin marcar <code>BREAKING CHANGE</code><br />
+✔ Realizar releases frecuentes siguiendo SemVer<br />
+✔ Generar changelog automático a partir de commits<br />
+✔ Mantener consistencia en nombres de ramas y merges</p>
+<hr />
+<h2 id="ejemplo-de-flujo-integrado-de-commits-y-versionado">Ejemplo de flujo integrado de commits y versionado<a class="headerlink" href="#ejemplo-de-flujo-integrado-de-commits-y-versionado" title="Permanent link">&para;</a></h2>
+<p>feat(auth): agrega login con Google<br />
+fix(ui): corrige alineación de botones<br />
+feat(api)!: cambia endpoint de autenticación<br />
+BREAKING CHANGE: endpoint antiguo ya no responde</p>
+<ul>
+<li>Primer commit → MINOR  </li>
+<li>Segundo commit → PATCH  </li>
+<li>Tercer commit → MAJOR  </li>
+</ul>
+<blockquote>
+<p>Al generar la release, la versión SemVer se incrementa automáticamente según los commits.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "content.code.copy", "search.highlight", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
